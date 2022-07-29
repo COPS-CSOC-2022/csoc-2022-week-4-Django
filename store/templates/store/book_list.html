@@ -37,12 +37,12 @@
     <tbody>
         {% for book in books %}
         <tr>
-        <th scope="row">1</th>
-        <td><a href="/book/{{ book.id }}/">sad</a></td>
-        <td>sda</td>
-        <td>dasd</td>
-        <td>cas</td>
-        <td>zxc</td>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td><a href="/book/{{ book.id }}/">{{ book.title }}</a></td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.genre }}</td>
+        <td>{{ book.rating }}</td>
+        <td>{{ book.mrp }}</td>
         </tr>
         {% endfor %}
     </tbody>
