@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Title: {{ book.title }}</h1>
+
+<p><strong>Author:</strong> {{ book.author }}</p>
+<p><strong>Genre:</strong> {{ book.genre }}</p>
+<p><strong>Description:</strong> {{ book.desc }}</p> 
+<p><strong>Rating:</strong> {{ book.rating }}</p>  
+<p><strong>Maximum Retail Price:</strong> {{ book.max_price }}</p>  
+{%if book.link != '0'%}
+<p><strong>Read Online:- </strong><a href={{book.link}}>here</a></p>
+{%endif%}
+{% comment %} <p><strong>Read Online:- </strong><a href="https://therustyquill.files.wordpress.com/2013/09/into-the-wild.pdf">here</a></p> {% endcomment %}
+{% comment %} <embed src="https://therustyquill.files.wordpress.com/2013/09/into-the-wild.pdf" width="500" height="375" type="application/pdf"> {% endcomment %}
+
+<div style="margin-left:20px;margin-top:20px">
+    <h4>Copies</h4>
+<ul>
+{% for copy in book.bookcopy_set.all %}
+<li>
+<h5>ID - {{copy.id}}</h5>
+{% if copy.status%}
+<h6 class="text-success">Available</h6>
+{% else%}
+<h6 class="text-danger">On Loan</h6>
+<h6> <strong>Borrowed On: </strong> {{copy.borrow_date}} by {{copy.borrower}}</h6>
+<h6>Due On: {{copy.due_date}}</h6>
+<h6> Renew Due Date <a href="{{copy.get_absolute_url}}">here</a></h6>
+{% comment %} <h6> Return Book <a href="{{copy.get_return_url}}">here</a></h6> {% endcomment %}
+{% endif %}
+</li>
+<br>
+{%empty%}
+<h6 class="text-muted">No Copies Available </h6>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}

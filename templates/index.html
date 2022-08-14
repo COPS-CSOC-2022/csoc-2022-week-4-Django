@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Library Home</h1>
+
+  <p>Welcome to <b>LocalLibrary</b>, a Website developed by <i>Yash Agarwal !</i></p>
+  <h2>Dynamic content</h2>
+  <p>The library has the following record counts:</p>
+  <ul>
+     <li><strong>Books:</strong> {{ num_books }}</li> 
+     <li><strong>Copies:</strong> {{ num_copies }}</li>
+     <li><strong>Copies available:</strong> {{ num_copies_available }}</li> 
+  </ul>
+  <p>
+    <li><strong>Number of times visited : </strong>{{num_visit}}</li></p>
+{% endblock %}
