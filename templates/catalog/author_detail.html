@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Name: {{ author.name }}</h1>
+<p><strong>Description:</strong> {{ author.desc}}</p> 
+{%if author.link != '0'%}
+<p><strong>Read More about {{author.name}} </strong><a href={{author.link}}>here</a></p>
+{%endif%}
+
+{% endblock %}

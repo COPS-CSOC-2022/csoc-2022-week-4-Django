@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<p>
+{%for copy in num_copies_loaned%}
+<h5>Title: {{ copy.book.title }}</h5>
+<h5>ID - {{copy.id}}</h5>
+</li>
+<br>
+{% endfor %}
+{% endblock %}
